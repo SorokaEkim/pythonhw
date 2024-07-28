@@ -31,17 +31,17 @@ df['year'] = pd.to_datetime(df['release_date'], errors='coerce').apply(lambda x:
 df['return'] = df['revenue'] /  df['budget'] * 100
 df[df['return'].notnull()].shape
 
-#Большинство фильмов выпускаются по пятницам
-df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
-df['weekday'] = df['release_date'].dt.weekday
-df['weekday_name'] = df['release_date'].dt.day_name()
-week_df = pd.DataFrame(df['weekday_name'].value_counts())
-week_df['week_day'] = week_df.index
-week_df.columns = ['count', 'week_day']
+# #Большинство фильмов выпускаются по пятницам
+# df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
+# df['weekday'] = df['release_date'].dt.weekday
+# df['weekday_name'] = df['release_date'].dt.day_name()
+# week_df = pd.DataFrame(df['weekday_name'].value_counts())
+# week_df['week_day'] = week_df.index
+# week_df.columns = ['count', 'week_day']
 
-plt.figure(figsize=(12,5)) # Задаем в дюймах область рисования графика (ширина, высота)
-sns.barplot(x='week_day', y='count', data=week_df) # рисуем столбчатый график (категория - значение)
-plt.show()
+# plt.figure(figsize=(12,5)) # Задаем в дюймах область рисования графика (ширина, высота)
+# sns.barplot(x='week_day', y='count', data=week_df) # рисуем столбчатый график (категория - значение)
+# plt.show()
 
 
 #Известные актеры снимаются в самых кассовых фильмах
